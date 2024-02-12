@@ -69,8 +69,28 @@ button.disabled:hover {
     #secondary {
         margin-left:646px;
     }
-}
 
+    #secondary, #picking {
+        transition:margin-left 0.4s;
+    }
+
+    #picking.collapsed {
+        margin-left:-100%;
+        z-index:-1;
+    }
+
+    #secondary.expanded {
+        margin-left:0;
+    }
+
+    #expand-favorites {
+        display:inline-block;
+    }
+
+    .tabs {
+        padding-left:0;
+    }
+}
 @media (min-width:1300px) {
     /* Once we get to the point where 636px is less than half of the width of the screen, make the picking div just take up half */
     #picking {
