@@ -428,6 +428,47 @@ var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
     }
 });
 /* End sortable favorites */
+    /* NON-PICKER EVENT HANDLERS */
+
+$(".toggle").on('click', function() {
+    $($(this).attr("href")).slideToggle();
+    return false;
+});
+
+$(".tabs").each(function() {
+    var $tabs = $(this);
+    $tabs.find("a:not(#expand-favorites a)").on('click', function() {
+        $($tabs.children(".active").removeClass("active").children("a").attr("href")).hide();
+        $(this).parent().addClass("active");
+        $($(this).attr("href")).show();
+        return false;
+    }).each(function () {
+        $($(this).attr("href")).hide();
+    }).first().click();
+});
+
+$("#expand-favorites a").on('click', function() {
+    $(this).html($("#secondary").hasClass("expanded") ? "&lsaquo;" : "&rsaquo;");
+    $(this).attr("title", $("#secondary").hasClass("expanded") ? "Expand list" : "Show picker");
+    $("#picking").toggleClass("collapsed");
+    $("#secondary").toggleClass("expanded");
+    return false;
+});
+
+$("#darkmode").on('click', function() {
+    if (getActiveStyleSheet() === 'dark') {
+        setActiveStyleSheet(null);
+        $(this).text("Dark mode");
+    } else {
+        setActiveStyleSheet('dark');
+        $(this).text("Light mode");
+    }
+    return false;
+});
+
+if (getActiveStyleSheet() === 'dark') {
+    $("#darkmode").text("Light mode");
+}
 </script>
 </body>
 </html>
