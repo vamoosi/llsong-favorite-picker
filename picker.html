@@ -203,6 +203,52 @@ button.disabled:hover {
     position:relative;
     z-index:3;
 }
+    .tabs {
+    margin:20px 0;
+    padding:0 10px;
+    list-style-type:none;
+    border-bottom:1px solid #AAA;
+}
+
+.tabs li {
+    margin:0 -1px -1px 0;
+    padding:0;
+    display:inline-block;
+    vertical-align:bottom;
+    border:1px solid #AAA;
+    background:#EEE;
+}
+
+.tabs li:first-child {
+    border-top-left-radius:5px;
+}
+
+.tabs li:last-child {
+    border-top-right-radius:5px;
+}
+
+.tabs li.active {
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    background:#FFF;
+    border-bottom-color:#FFF;
+}
+
+.tabs a {
+    display:block;
+    padding:5px 10px;
+    font-size:1.1em;
+    color:#000;
+}
+
+.tabs li.active a {
+    font-size:1.2em;
+    padding:10px 20px 5px;
+}
+
+#expand-favorites {
+    display:none;
+}
 </style>
 </head>
 <body>
@@ -428,7 +474,7 @@ var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
     }
 });
 /* End sortable favorites */
-    /* NON-PICKER EVENT HANDLERS */
+/* NON-PICKER EVENT HANDLERS */
 
 $(".toggle").on('click', function() {
     $($(this).attr("href")).slideToggle();
