@@ -298,6 +298,7 @@ button.disabled:hover {
 
 <div id="options">
 <p>Include Era (this includes any subunits, solos, or rivals for that group):
+<label>(<input type="checkbox" id="units-all" class="select-all" value="unitsall"> Select all)</label>
 <label><input type="checkbox" name="units" class="units" value="μ's">μ's</label>
 <label><input type="checkbox" name="units" class="units" value="Aqours">Aqours</label>
 <label><input type="checkbox" name="units" class="units" value="Nijigasaki">Nijigasaki</label>
@@ -307,6 +308,7 @@ button.disabled:hover {
 </p>
 
 <p>Include Subunit:
+<label>(<input type="checkbox" id="subunits-all" class="select-all" value="subunitsall"> Select all)</label>
 <label><input type="checkbox" name="subunits" class="subunits" value="unit2">None</label>
 <label><input type="checkbox" name="subunits" class="subunits" value="Printemps">Printemps</label>
 <label><input type="checkbox" name="subunits" class="subunits" value="BiBi">BiBi</label>
@@ -318,9 +320,6 @@ button.disabled:hover {
 <label><input type="checkbox" name="subunits" class="subunits" value="Solo">Solos</label>
 </p>
 </div>
-
-<ol id="favorites" class="item-list">
-</ol>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
