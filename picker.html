@@ -297,6 +297,26 @@ button.disabled:hover {
 </div>
 
 <div id="options">
+<p>Include Era (this includes any subunits, solos, or rivals for that group):
+<label><input type="checkbox" name="units" class="units" value="μ's">μ's</label>
+<label><input type="checkbox" name="units" class="units" value="Aqours">Aqours</label>
+<label><input type="checkbox" name="units" class="units" value="Nijigasaki">Nijigasaki</label>
+<label><input type="checkbox" name="units" class="units" value="Liella">Liella</label>
+<label><input type="checkbox" name="units" class="units" value="Musical">School Idol Musical</label>
+<label><input type="checkbox" name="units" class="units" value="Hasunosora">Hasunosora</label>
+</p>
+
+<p>Include Subunit:
+<label><input type="checkbox" name="subunits" class="subunits" value="unit2">None</label>
+<label><input type="checkbox" name="subunits" class="subunits" value="Printemps">Printemps</label>
+<label><input type="checkbox" name="subunits" class="subunits" value="BiBi">BiBi</label>
+<label><input type="checkbox" name="subunits" class="subunits" value="lilywhite">lily white</label>
+<label><input type="checkbox" name="subunits" class="subunits" value="Cyaron">CYaRon!</label>
+<label><input type="checkbox" name="subunits" class="subunits" value="Azalea">AZALEA</label>
+<label><input type="checkbox" name="subunits" class="subunits" value="GuiltyKiss">Guilty Kiss</label>
+<label><input type="checkbox" name="subunits" class="subunits" value="other">Other</label>
+<label><input type="checkbox" name="subunits" class="subunits" value="Solo">Solos</label>
+</p>
 </div>
 
 <ol id="favorites" class="item-list">
@@ -462,6 +482,13 @@ var items = [
 var myPicker = new picker.Picker({
     items: items,
     localStorageKey: 'picker-state',
+    defaultSettings: {
+        units: ['μ's', 'Aqours', 'Nijigasaki', 'Liella', 'Musical', 'Hasunosora'],
+        subunits: ['None', 'Printemps', 'BiBi', 'lilywhite', 'Cyaron', 'Azalea', 'GuiltyKiss', 'Other', 'Solos']
+    },
+    shouldIncludeItem: function(item, settings) {
+        return settings.units.indexOf(item.unit);
+    }
 });
 
 var pickerUI = new PickerUI(myPicker, {
